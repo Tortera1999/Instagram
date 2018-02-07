@@ -54,7 +54,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Instagram" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJr-I1-yUx">
                                 <rect key="frame" x="50" y="72" width="273" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="39"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -62,6 +62,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="instagramLabel" destination="ZJr-I1-yUx" id="Rk7-lj-OSc"/>
                         <outlet property="passwordField" destination="O4s-1p-4Fo" id="9Xt-GI-rTV"/>
                         <outlet property="usernameField" destination="JgA-Nf-rXn" id="NIv-W1-DTB"/>
                         <segue destination="PxU-EG-vO9" kind="presentation" identifier="loginSegue" id="KXv-nz-ydA"/>

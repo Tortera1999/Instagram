@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instagram/LoginViewController.swift"
-            timestampString = "539305498.494988"
+            timestampString = "539670991.724254"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
             landmarkName = "onSignIn(_:)"
             landmarkType = "7">
          </BreakpointContent>
