@@ -12,6 +12,7 @@ import ParseUI
 
 class PostCell: UITableViewCell {
 
+    @IBOutlet weak var usernameLabel: UILabel!
     
     @IBOutlet weak var postImageView: PFImageView!
     
@@ -19,6 +20,9 @@ class PostCell: UITableViewCell {
     
     var post: PFObject! {
         didSet {
+            let user = post["author"] as? PFUser
+            self.usernameLabel.text = user?.username!
+            usernameLabel.font = UIFont.boldSystemFont(ofSize: 16)
             self.postImageView.file = post["media"] as? PFFile
             self.postCaptionLabel.text = post["caption"] as? String
             self.postImageView.loadInBackground()

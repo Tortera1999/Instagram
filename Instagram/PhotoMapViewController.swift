@@ -18,10 +18,12 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
 
 
         // Do any additional setup after loading the view.
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -46,6 +48,8 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         self.present(vc, animated: true, completion: nil)
     }
     
+
+    
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any]) {
         // Get the image captured by the UIImagePickerController
@@ -62,7 +66,7 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         // Do something with the images (based on your use case)
         
         // Dismiss UIImagePickerController to go back to your original view controller
-        dismiss(animated: true, completion: nil)
+        picker.dismiss(animated: true, completion: nil)
         
         
     }
@@ -79,8 +83,10 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
                 
                 //self.dismiss(animated: true, completion: nil)
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UserDidPost"), object: nil)
-                self.performSegue(withIdentifier: "goToTableView", sender: nil)
+                self.tabBarController?.selectedIndex = 0
                 //self.performSegue(withIdentifier: "postUpdateSegue", sender: nil)
+                //var tabBarController: UITabBarController? { get }
+                
                 
                 
             }
@@ -108,6 +114,19 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         UIGraphicsEndImageContext()
         return newImage!
     }
+    
+    @IBAction func onLogout(_ sender: Any) {
+        PFUser.logOut();
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateInitialViewController()
+        present(viewController!, animated: true, completion: nil)
+    }
+   
+    
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        _ = self.tabBarController?.selectedIndex = 1
+//    }
     /*
     // MARK: - Navigation
 

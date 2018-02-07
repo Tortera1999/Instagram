@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import ParseUI
+import Foundation
 
 class PostDetailViewController: UIViewController {
 
@@ -18,19 +19,37 @@ class PostDetailViewController: UIViewController {
     
     @IBOutlet weak var captionPostDetail: UILabel!
     
+    var user: PFUser?;
+    var caption: String?
+    var createdAt: String?
+    
+    
     var post: PFObject! {
         didSet {
-             print(post)
-            self.usernamePostDetail.text = post["author"] as? String
-            self.captionPostDetail.text = post["caption"] as? String
-            self.datePostDetail.text = "\(post.createdAt!)"
+            
+            user = post["author"] as? PFUser
+            //print(user?.username)
+            caption = post["caption"] as? String
+            createdAt = "\(post.createdAt!)"
+//            print(createdAt)
+//            let dateFormatter = DateFormatter();
+//            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss +x"
+//            let date = dateFormatter.date(from: createdAt!)
+//            
+//            
+//            dateFormatter.dateFormat = "yyyy-MM-dd"///this is what you want to convert format
+//            let timeStamp = dateFormatter.string(from: date!)
+//        
+//            print(timeStamp)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        self.usernamePostDetail.text = "\(String(describing: (user?.username)!))"
+        self.captionPostDetail.text = "\(String(describing: caption!))"
+        self.datePostDetail.text = "\(String(describing: createdAt!)))"
 
         // Do any additional setup after loading the view.
     }

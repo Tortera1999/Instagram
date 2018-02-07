@@ -56,7 +56,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewWillAppear(_ animated: Bool) {
         
-        queryCall();
+        queryCall()
         
     }
     
@@ -106,9 +106,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = sender as! PostCell
         let vc = segue.destination as! PostDetailViewController
         let index = postTableView.indexPath(for: cell)
+        print("Posts");
+//        print()
+        
+        print(posts?[(index?.row)!]);
         vc.post = posts?[(index?.row)!];
     }
     
+    @IBAction func onLogout(_ sender: Any) {
+        PFUser.logOut();
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateInitialViewController()
+        present(viewController!, animated: true, completion: nil)
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
